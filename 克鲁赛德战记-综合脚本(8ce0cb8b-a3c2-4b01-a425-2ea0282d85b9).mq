@@ -2,6 +2,8 @@
 ' -------------------自定义配置区--------------------------
 ' 周几开始买块填 1-7，否则不会买块
 Dim BLOCK_BUY_DAY = 4
+' 当前小时为几的倍数时，自动切回竞技场
+Dim HOUR_MOD = 8
 ' 渠道的包名，用于重启。
 ' 不同的渠道(Taptap，Bilibili，国际服等)包名不同，需要自行配置。否则无法重启。
 ' 国际服包名 com.nhnst.SKCQCN
@@ -35,8 +37,9 @@ Dim FUNC_DUNGEON = 2
 ' 世界BOSS
 Dim FUNC_WB	= 3
 
-' 当前功能
-Dim curFunc = FUNC_BATTLE
+' 进游戏首要功能
+Dim curFunc = FUNC_FISHING
+' 默认切换
 Dim defaultSwitchTo = FUNC_FISHING
 Dim lastHour = 0
 ' 上次战斗选择的对手，如果输了就换一次
@@ -61,8 +64,6 @@ Dim restartCount = 0
 Dim battleBlock = 1
 ' PVP买块
 Dim pvpBuyBlock = False
-' 当前小时为几的倍数时，自动切回竞技场
-Dim HOUR_MOD = 6
 
 Randomize
 
@@ -74,11 +75,6 @@ While True
 Wend
 EndScript
 
-Function test()
-    Dim text = Ocr(380,54,439,157, "DEEBEF|849294", 0.9)
-    ShowMessage "ocrtext:" & text
-End Function
-
 Function updateTimeState()
     Dim h=DateTime.Hour(),m=DateTime.Minute(),s=DateTime.Second()
     ' 周几开始自动买块
@@ -86,7 +82,7 @@ Function updateTimeState()
         pvpBuyBlock = True
     End If
 
-    ' 每隔6小时打一次竞技
+    ' 每隔n小时打一次竞技
     If (h Mod HOUR_MOD) = 0 Then
         If lastHour <> h Then
             lastHour = h
@@ -926,7 +922,7 @@ Function onThreeBattleScene()
     If curFunc = FUNC_BATTLE Then
         ' 竞技场
         MTouch 361, 482
-        //	MTouch 360, 961
+        ' MTouch 360, 961
     Else
         MTouch 1019,1830
     End If
@@ -1125,7 +1121,7 @@ Function battleBlock2(loopTimes)
     Delay 50
 End Function
 
-// 是否是G4手指点击
+' 是否是G4手指点击
 Function isG4PointHand()
     If CmpColorEx("180|315|08AED6,96|321|299AB5,92|1591|299AB5,83|1631|3155EF,172|1597|08AED6",0.95) = 1 Then
         isG4PointHand= TRUE
