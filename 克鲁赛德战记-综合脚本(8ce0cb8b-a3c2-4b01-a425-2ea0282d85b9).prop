@@ -1,0 +1,18 @@
+{
+   "BestResolution" : {
+      "X" : 1080,
+      "Y" : 1920
+   },
+   "ChangeFileList" : 0,
+   "Description" : "",
+   "FileVersion" : {
+      ".atc" : 0,
+      ".mq" : 0,
+      ".prop" : 0,
+      ".rtd" : 0,
+      ".uip" : 0,
+      ".uis" : 0
+   },
+   "Name" : "克鲁赛德战记-综合脚本",
+   "id" : "8ce0cb8b-a3c2-4b01-a425-2ea0282d85b9"
+}
