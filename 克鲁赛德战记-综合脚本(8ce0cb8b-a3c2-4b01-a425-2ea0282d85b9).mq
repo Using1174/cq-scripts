@@ -1,4 +1,3 @@
-' 2018/10/06
 ' For 克鲁赛德战记 综合脚本
 ' -------------------自定义配置区--------------------------
 ' 周几开始买块填 1-7，否则不会买块
@@ -10,7 +9,6 @@ Dim BLOCK_BUY_DAY = 4
 ' 如 com.nhnst.SKCQCN.uc
 Dim PACKAGE_NAME = "com.nhnst.SKCQCN"
 ' -------------------自定义配置结束-------------------------
-
 ' -------------------以下为系统配置，请勿随意修改-------------------------
 ' 扯到鱼后第一次按满的时间
 'Dim FirstPressFishTime = 2300
@@ -21,7 +19,7 @@ Dim TryFishTimes = 0
 Dim PushTimes = 0
 ' 成功钓到的鱼的个数
 Dim SuccessCount = 0
-' 绿色未满长按时长84
+' 绿色未满长按时长
 Dim PULL_LONG_PRESS_MSECS = 200
 ' 挣扎节点每次按住多久
 Dim PULL_PRESS_MSECS = 120
