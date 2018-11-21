@@ -1,10 +1,10 @@
 ' For 克鲁赛德战记 综合脚本
 ' -------------------自定义配置区--------------------------
-' 周几开始买块填 1-7，否则不会买块
+' 周几开始买块。填[1-7]，否则不买块
 Dim BLOCK_BUY_DAY = 4
 ' 当前小时为几的倍数时，自动切回竞技场
 Dim HOUR_MOD = 8
-' 渠道的包名，用于重启。
+' 渠道的包名，用于自动重启。
 ' 不同的渠道(Taptap，Bilibili，国际服等)包名不同，需要自行配置。否则无法重启。
 ' 国际服包名 com.nhnst.SKCQCN
 ' 渠道服在国际服包名后加后缀 .uc .bili .qihu .xindong .otaku等
@@ -13,7 +13,7 @@ Dim PACKAGE_NAME = "com.nhnst.SKCQCN"
 ' -------------------自定义配置结束-------------------------
 ' -------------------以下为系统配置，请勿随意修改-------------------------
 ' 扯到鱼后第一次按满的时间
-'Dim FirstPressFishTime = 2300
+' Dim FirstPressFishTime = 2300
 ' 检测到力量值掉到蓝色以下时，按压时间ms
 Dim ON_WEAK_PRESS_TIME = 1200
 Dim TryFishTimes = 0
@@ -22,11 +22,11 @@ Dim PushTimes = 0
 ' 成功钓到的鱼的个数
 Dim SuccessCount = 0
 ' 绿色未满长按时长
-Dim PULL_LONG_PRESS_MSECS = 200
-' 挣扎节点每次按住多久
-Dim PULL_PRESS_MSECS = 120
-' 拉到红色之后等待多少毫秒
-Dim PULL_FULL_DELAY = 10
+Dim PULL_LONG_PRESS_MSECS = 120
+' 挣扎节点(红线)每次按住多久
+Dim PULL_PRESS_MSECS = 10
+' 拉过红色等待多少毫秒
+Dim PULL_FULL_DELAY = 30
 
 ' 钓鱼
 Dim FUNC_FISHING = 0
@@ -52,7 +52,7 @@ Dim isInWB = False
 Dim MAX_FISH_TIMES = 999
 ' 赛跑按钮选择0-3，表示1-4名
 Dim raceIndex = 0
-' 赛跑界面卡3次就重启
+' 赛跑界面卡5次就重启
 Dim raceKill = 0
 ' 未知界面卡住
 Dim unknowKill = 0
